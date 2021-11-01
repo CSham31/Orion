@@ -14,18 +14,23 @@ def writeToCSV(data):
     csv_file.write(data)
     csv_file.close()
     hungarian_edit.main()
-    with open('output.csv', 'r') as csvfile:
-        csvreader = csv.reader(csvfile)
-        string = ""
-        for row in csvreader:
-            string += "=>".join(row)+"\n"
-        print(string)
-        return string
+    # with open('output.csv', 'r') as csvfile:
+    #     csvreader = csv.reader(csvfile)
+    #     string = ""
+    #     for row in csvreader:
+    #         string += "=>".join(row)+"\n"
+    #     print(string)
+    #     return string
 
     # eel.addText(string)
     # eel.sleep(0.1)
     # print(string)
-
+@eel.expose  # expose this function to Javascript
+def writeToCSV2(data):
+    csv_file = open('data1.csv', 'w')
+    csv_file.write(data)
+    csv_file.close()
+    tsp.main()
 
 @eel.expose
 def readCSV():
