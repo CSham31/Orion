@@ -2,6 +2,7 @@ from __future__ import print_function
 import csv
 import eel
 import hungarian_edit
+import tsp
 
 eel.init('web',
          allowed_extensions=['.js', '.html'])

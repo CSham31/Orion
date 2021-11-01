@@ -56,7 +56,7 @@
                     <li class="nav-item"><a class="nav-link" href="#services">Assignment</a></li>
                     <li class="nav-item"></li>
                     <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li> -->
                 </ul>
             </div>
         </div>
@@ -80,10 +80,6 @@
                 <div class="col" style="text-align: center;transform-origin: 330px 50px;"><a class="btn btn-primary btn-lg text-center border rounded-pill" role="button" style="text-align: left;font-size: 50px;width: 100px;height: 98.4px;" href="#services"><i class="fa fa-truck" style="font-size: 45px;color: rgb(0,0,0);"></i></a><span style="transform-origin: top;"></span>
                     <h1 style="font-size: 20px;">ROUTE</h1>
                     <p>Identify the most cost-effective route to distribute products to showrooms.</p>
-                </div>
-                <div class="col"><a class="btn btn-primary btn-lg text-center border rounded-pill" role="button" style="text-align: left;font-size: 50px;width: 100px;height: 98.4px;" href="#services"><i class="fa fa-list-ol" style="font-size: 45px;color: rgb(0,0,0);"></i></a>
-                    <h1 style="font-size: 20PX;">ASSIGNMENT</h1>
-                    <p>Most optimal assignment schedule based on cost of locating a machine at a place.</p>
                 </div>
             </div>
         </div>
@@ -112,8 +108,122 @@
         </br>
         <input type="submit" value="Clear"></input>
     </form>
-    
+        
     <button id='download-button'>Process</button>
+    
+    <script type="text/javascript" src="/eel.js"></script>
+    <script type="text/javascript" src="web.js"></script>
+    <textarea id ="ans"> </textarea>
+    <button type="button" id="hun" onclick="read()">button</button>
+    <script type="text/javascript">
+    
+            function htmlToCSV(html) {
+            var html = document.querySelector("table").outerHTML;
+        var data = [];
+       var rows = document.querySelectorAll("table tr");
+    
+        for (var i = 0; i < rows.length; i++){
+          var row = [],
+            cols = rows[i].querySelectorAll("td, th");
+    
+          for (var j = 0; j < cols.length; j++) {
+         
+            if (cols[j].querySelector('input') != null){
+                row.push(cols[j].querySelector('input').value);
+            }else{
+                row.push(cols[j].innerText); 
+            }
+          }
+          data.push(row.join(","));
+        }
+        alert(data.join('\r\n'))
+        return data.join('\n')
+      }
+        document
+          .getElementById("download-button")
+          .addEventListener("click", function () {
+            var html = document.querySelector("table").outerHTML;
+            htmlToCSV(html);
+          });function htmlToCSV(html) {
+            var html = document.querySelector("table").outerHTML;
+        var data = [];
+        var final = [];
+       var rows = document.querySelectorAll("table tr");
+    
+        for (var i = 0; i < rows.length; i++){
+          var row = [],
+            cols = rows[i].querySelectorAll("td, th");
+    
+          for (var j = 0; j < cols.length; j++) {
+         
+            if (cols[j].querySelector('input') != null){
+                row.push(cols[j].querySelector('input').value);
+            }else{
+                row.push(cols[j].innerText); //---original row
+            }
+          }
+          data.push(row.join(","));
+        }
+        return data.join('\n')
+    
+      }
+        document
+          .getElementById("download-button")
+          .addEventListener("click", function () {
+            var html = document.querySelector("table").outerHTML;
+     
+            var string=eel.writeToCSV2(htmlToCSV(html));
+    
+          });
+    
+         eel.start('home.html')
+    
+    </script>
+
+    <section id="services" style="height: 502px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="text-uppercase text-center section-heading" style="text-align: left;">ABOUT</h2>
+                    <h3 class="text-muted section-subheading"></h3>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col"><a class="btn btn-primary btn-lg text-center border rounded-pill" role="button" style="text-align: left;font-size: 50px;width: 100px;height: 98.4px;" href="#services"><i class="fa fa-list-ol" style="font-size: 45px;color: rgb(0,0,0);"></i></a>
+                    <h1 style="font-size: 20PX;">ASSIGNMENT</h1>
+                    <p>Most optimal assignment schedule based on cost of locating a machine at a place.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  
+
+<form name="myform" id="myform">
+    <table id="blacklistgrid">
+        <tr id="Row1">
+            <td class="space">&nbsp;</td>
+            <td>T0</td>
+        </tr>
+        <tr id="Row2">
+            <td>
+                <input type="text" placeholder="task" name="task" required/>
+            </td>
+            <td>
+                <input type="number" name="t0" min="-1"/>
+            </td>
+        </tr>
+    </table>
+    <button type="button" id="btnAdd">Add few more Rows!</button>
+    </br>
+    </br>
+    <button type="button" id="btnAddCol">Add new column</button>
+    </br>
+    </br>
+    <input type="submit" value="Clear"></input>
+</form>
+    
+<button id='download-button'>Process</button>
 
 <script type="text/javascript" src="/eel.js"></script>
 <script type="text/javascript" src="web.js"></script>
@@ -181,12 +291,8 @@
       });
 
      eel.start('home.html')
-    
 
-
-
-
-  </script>
+</script>
     
 
     <section class="bg-light" id="team" style="width: 1391.2;">
@@ -240,7 +346,7 @@
             </div>
         </div><!-- End: 1 Row 4 Columns -->
     </section>
-    <section id="contact" style="background-image:url('assets/img/map-image.png');">
+    <!-- <section id="contact" style="background-image:url('assets/img/map-image.png');">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -268,7 +374,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <footer>
         <div class="container">
             <div class="row">
