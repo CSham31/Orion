@@ -62,8 +62,9 @@ def readCSV1():
         string = ""
         for row in csvreader:
             string += "=".join(row)+"\n"
+
         print(string)
         return string
 
 
-eel.start('home.html')  # start size=(600,600)
+eel.start('home.html',mode='default')  # start size=(600,600)

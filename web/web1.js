@@ -5,3 +5,4 @@ function read1(){
 function callBack1(result){
     document.getElementById("ans").value  = result;
 }
+

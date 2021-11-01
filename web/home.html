@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
     </script>
+    
     <script>src = "eel.js"</script>
     <script>
         function addText(text) {
@@ -27,22 +28,35 @@
                     first_row = $('#Row2');
 
                 while (count-- > 0) first_row.clone().appendTo('#blacklistgrid');
-            });
-
-            var myform = $('#myform'),
-                iter = 1;
-            $('#btnAddCol').click(function () {
+                
                 myform.find('tr').each(function () {
                     var trow = $(this);
                     console.log(trow)
                     if (trow.index() === 0) {
-                        trow.append('<td>T' + iter + '</td>');
+                        trow.append('<td>Node' + iter + '</td>');
                     } else {
                         trow.append('<td><input type="number" min="-1" name="cb' + iter + '"/></td>');
                     }
                 });
                 iter += 1;
+
+
             });
+
+            var myform = $('#myform'),
+                iter = 1;
+            // $('#btnAddCol').click(function () {
+            //     myform.find('tr').each(function () {
+            //         var trow = $(this);
+            //         console.log(trow)
+            //         if (trow.index() === 0) {
+            //             trow.append('<td>Node' + iter + '</td>');
+            //         } else {
+            //             trow.append('<td><input type="number" min="-1" name="cb' + iter + '"/></td>');
+            //         }
+            //     });
+            //     iter += 1;
+            // });
         });
     </script>
 
@@ -74,7 +88,7 @@
                     var trow = $(this);
                     console.log(trow)
                     if (trow.index() === 0) {
-                        trow.append('<td>T' + iter + '</td>');
+                        trow.append('<td>Location' + iter + '</td>');
                     } else {
                         trow.append('<td><input type="number" min="-1" name="cb' + iter + '"/></td>');
                     }
@@ -91,28 +105,27 @@
                 data-bs-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i
                     class="fa fa-bars"></i></button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
+            <div class="collapse navbar-collapse" id="navbarResponsive"><span class="intro-text" style="font-size :24px; color: rgb(255, 255, 255); align-self: center;">     Welcome To Dashboard</span>
                 <ul class="navbar-nav ms-auto text-uppercase">
                     <li class="nav-item"><a class="nav-link" href="#route">Route</a></li>
                     <li class="nav-item"><a class="nav-link" href="#assignment">Assignment</a></li>
-                    <li class="nav-item"></li>
                     <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
                     <!-- <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li> -->
                 </ul>
             </div>
         </div>
     </nav>
-    <header class="masthead" style="background-image:url('assets/img/header-bg.jpg');">
+    <header class="masthead" style="background-image:url('assets/img/cover1.jpg');">
         <div class="container">
             <div class="intro-text">
-                <div class="intro-lead-in"><span>Welcome To Dashboard</span></div><a
-                    class="btn btn-primary btn-xl text-uppercase" role="button" href="#route">Start</a>
+                <div class="intro-lead-in"></div><a
+                    class="btn btn-primary btn-xl text-uppercase" style="color: rgb(0, 0, 0);" role="button" href="#route">Start</a>
             </div>
         </div>
     </header>
 
     <!-- ====================Route========================================= -->
-    <section id="route" style="height: 502px;">
+    <section id="route" style="height: 502px">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -127,42 +140,53 @@
                             class="fa fa-truck" style="font-size: 45px;color: rgb(0,0,0);"></i></a><span
                         style="transform-origin: top;"></span>
                     <h1 style="font-size: 20px;">ROUTE</h1>
-                    <p>Identify the most cost-effective route to distribute products to showrooms.</p>
+                    <p>Identifying the most cost-effective route to distribute products to showrooms in outer locations is identified by the shortest distance route. TSP mechanism and the Branch and Bound algorithm in python used to solve this problem.</p>
+                    <p><i class="fa fa-exclamation-circle" style="font-size: 16px;color: rgb(255, 0, 0);"></i> Note: If no value, use 100</p>
+                    <br>
+                    <br>
+                    <br>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <form name="myform" id="myform">
         <table id="blacklistgrid">
             <tr id="Row1">
                 <td class="space">&nbsp;</td>
-                <td>T0</td>
+                <td>Node0</td>
             </tr>
             <tr id="Row2">
                 <td>
-                    <input type="text" placeholder="task" name="task" required />
+                    <input type="text" placeholder="Node" name="task" required />
                 </td>
                 <td>
                     <input type="number" name="t0" min="-1" />
                 </td>
             </tr>
         </table>
-        <button type="button" id="btnAdd">Add few more Rows!</button>
-        </br>
-        </br>
-        <button type="button" id="btnAddCol">Add new column</button>
-        </br>
-        </br>
-        <input type="submit" value="Clear"></input>
+        <br>
+        <br>
+        <br>
+        
+        
+        <input type="submit" value="Clear"class="btn btn-primary btn-primary text-uppercase" style="color: rgb(0, 0, 0)"></input>
+              
+        <!-- <button type="button" id="btnAddCol">Add new column</button> -->
+        
+        
+        
     </form>
-
-    <button id='download-button'>Process</button>
-
+    <br>
+    <button type="button" id="btnAdd" class="btn btn-primary btn-primary text-uppercase" style="color: rgb(0,0,0)" >Add Another Node</button>
+    <button id='download-button' class="btn btn-primary btn-primary text-uppercase" style="color: rgb(0,0,0)">Calculate</button>
+    <button type="button" id="hun" onclick="read()" class="btn btn-primary btn-primary text-uppercase" style="color: rgb(0,0,0)">Show Answers</button>
+    <br>
     <script type="text/javascript" src="/eel.js"></script>
     <script type="text/javascript" src="web.js"></script>
-    <textarea id="ans1"> </textarea>
-    <button type="button" id="hun" onclick="read()">button</button>
+    <textarea id="ans1" style='min-width:100px;min-height: 100px'> </textarea>
+    
+    
     <script type="text/javascript">
 
         function htmlToCSV(html) {
@@ -227,6 +251,7 @@
         eel.start('home.html')
 
     </script>
+    
 <!-- =======================Assignment====================================== -->
     <section id="assignment" style="height: 502px;">
         <div class="container">
@@ -241,7 +266,11 @@
                         style="text-align: left;font-size: 50px;width: 100px;height: 98.4px;" href="#"><i
                             class="fa fa-list-ol" style="font-size: 45px;color: rgb(0,0,0);"></i></a>
                     <h1 style="font-size: 20PX;">ASSIGNMENT</h1>
-                    <p>Most optimal assignment schedule based on cost of locating a machine at a place.</p>
+                    <p>Find the most optimal assignment schedule for the modification of the Distribution Center layout of a factory, according to the cost of locating a machine at a place (in hundred rupees).</p>
+                    <p><i class="fa fa-exclamation-circle" style="font-size: 16px;color: rgb(255, 0, 0);"></i> Note: If no value, use -1</p>
+                    <br>
+                    <br>
+                    <br>
                 </div>
             </div>
         </div>
@@ -253,7 +282,7 @@
         <table id="blacklistgrid1">
             <tr id="Row11">
                 <td class="space">&nbsp;</td>
-                <td>T0</td>
+                <td>Location0</td>
             </tr>
             <tr id="Row21">
                 <td>
@@ -264,21 +293,24 @@
                 </td>
             </tr>
         </table>
-        <button type="button" id="btnAdd1"> new Rows!</button>
-        </br>
-        </br>
-        <button type="button" id="btnAddCol1"> new column</button>
-        </br>
-        </br>
-        <input type="submit" value="Clear"></input>
-    </form>
-
-    <button id='download-button1'>Calculate</button>
-
+        <br>
+        <input type="submit" value="Clear" class="btn btn-primary btn-primary text-uppercase" style="color: rgb(0,0,0)"></input>
+        </form>
+    <br>
+    <button type="button" id="btnAdd1" class="btn btn-primary btn-primary text-uppercase" style="color: rgb(0,0,0)"> New VAS Activity</button>
+    <button type="button" id="btnAddCol1" class="btn btn-primary btn-primary text-uppercase" style="color: rgb(0,0,0)"> New Location</button>
+    <button id='download-button1'class="btn btn-primary btn-primary text-uppercase" style="color: rgb(0,0,0)">Calculate</button>
+    <button type="button" id="hun1" onclick="read1()" class="btn btn-primary btn-primary text-uppercase" style="color: rgb(0,0,0)">Show Results</button>
+    <br>
+    <br>
     <script type="text/javascript" src="/eel.js"></script>
     <script type="text/javascript" src="web1.js"></script>
     <textarea id="ans"> </textarea>
-    <button type="button" id="hun1" onclick="read1()">print</button>
+
+    <div id="d1" style='max-width:200px;min-height:20px;display: none'>
+
+    </div>
+    
     <script type="text/javascript">
 
         function htmlToCSV1(html) {
