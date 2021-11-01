@@ -38,11 +38,13 @@ def TSP_ILP(G):
 		
 	return (model.objective_value, cycle)
 def main():
-	with open('data1.csv', newline='') as csvfile:
+	with open('data2.csv', newline='') as csvfile:
 		values_in_string =[]
 		task_arr = []
-		data =  list(csv.reader(csvfile,delimiter=','))
-		arr=data[1:-2:]
+		# data =  list(csv.reader(csvfile,delimiter=','))
+
+		arr =  list(csv.reader(csvfile,delimiter=','))[1:-2]
+		#arr=data[1:-2:]
 		for row in arr:
 			row.pop(0)
 		
@@ -63,10 +65,10 @@ def main():
 	# 	[1000.0, 3.0, 3.0, 0.0, 4.0], 
 	# 	[2.0, 1000.0, 8.0, 4.0, 0.0]]
 	distance,route=(TSP_ILP(matrix))
-	
-	with open("output.csv", "w", newline="") as f:
+	print(route)
+	with open("output2.csv", "w", newline="") as f:
 	 	writer = csv.writer(f)
 	 	writer.writerow(route)
-		
+	
 if __name__ == '__main__':
     main()

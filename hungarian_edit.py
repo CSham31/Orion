@@ -144,7 +144,7 @@ def main():
     with open('data1.csv', newline='') as csvfile:
         values_in_string =[]
         task_arr = []
-        data = list(csv.reader(csvfile,delimiter=','))
+        data = list(csv.reader(csvfile,delimiter=','))[2:]
         for row in data[1:]:
             values_in_string.append(row[1:])
         for row in data[1:]:
@@ -195,7 +195,7 @@ def main():
         optimal_arr.append(sample)
     #print(optimal_arr)
 
-    with open("output.csv", "w", newline="") as f:
+    with open("output1.csv", "w", newline="") as f:
         writer = csv.writer(f)
         writer.writerows(optimal_arr)
 

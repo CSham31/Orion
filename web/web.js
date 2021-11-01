@@ -1,7 +1,7 @@
 function read(){
-    eel.readCSV()(callBack)
+    eel.readCSV2()(callBack2)
 }
 
-function callBack(result){
-    document.getElementById("ans").value  = result;
+function callBack2(result){
+    document.getElementById("ans1").value  = result;
 }
