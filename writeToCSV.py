@@ -3,7 +3,7 @@ import csv
 import eel
 import hungarian_edit
 
-eel.init('C:/Users/SUPUNI/Desktop/SEM/case study/case study (1)/Orion/web',
+eel.init('web',
          allowed_extensions=['.js', '.html'])
 
 
