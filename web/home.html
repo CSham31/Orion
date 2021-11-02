@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Home - Orion</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/index.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script">
     <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
@@ -151,41 +152,51 @@
     </section>
     
     <form name="myform" id="myform">
-        <table id="blacklistgrid">
-            <tr id="Row1">
-                <td class="space">&nbsp;</td>
-                <td>Node0</td>
-            </tr>
-            <tr id="Row2">
-                <td>
-                    <input type="text" placeholder="Node" name="task" required />
-                </td>
-                <td>
-                    <input type="number" name="t0" min="-1" />
-                </td>
-            </tr>
-        </table>
-        <br>
-        <br>
+        <div class="table-responsive" style="margin-right: 50px; margin-left: 50px;">
+            <table id="blacklistgrid" class="table table-striped center" style=" width: 50%; margin-left: auto; margin-right: auto; margin-top: 100px;" >
+                <tr id="Row1">
+                    <td class="space">&nbsp;</td>
+                    <td>Node0</td>
+                </tr>
+                <tr id="Row2">
+                    <td>
+                        <input type="text" placeholder="Node" name="task" required />
+                    </td>
+                    <td>
+                        <input type="number" name="t0" min="-1" />
+                    </td>
+                </tr>
+            </table>
+        </div>
         <br>
         
-        
-        <input type="submit" value="Clear"class="btn btn-primary btn-primary text-uppercase" style="color: rgb(0, 0, 0)"></input>
-              
+        <div class="wrapper">
+            <input type="submit" value="Clear"class="btn btn-primary btn-primary text-uppercase" style="color: rgb(0, 0, 0)"></input>
+        </div>
         <!-- <button type="button" id="btnAddCol">Add new column</button> -->
         
         
         
     </form>
-    <br>
-    <button type="button" id="btnAdd" class="btn btn-primary btn-primary text-uppercase" style="color: rgb(0,0,0)" >Add Another Node</button>
-    <button id='download-button' class="btn btn-primary btn-primary text-uppercase" style="color: rgb(0,0,0)">Calculate</button>
-    <button type="button" id="hun" onclick="read()" class="btn btn-primary btn-primary text-uppercase" style="color: rgb(0,0,0)">Show Answers</button>
+    
+    <div class="wrapper">
+        <button type="button" id="btnAdd" class="btn btn-primary btn-primary text-uppercase" 
+            style="color: rgb(0,0,0);margin-top: 20px;" >Add Another Node</button>
+    </div>
+    <div class="wrapper">
+        <button id='download-button' class="btn btn-primary btn-primary text-uppercase" 
+            style="color: rgb(0,0,0);margin-top: 20px;">Calculate</button>
+    </div>
+    <div class="wrapper">
+        <button type="button" id="hun" onclick="read()" class="btn btn-primary btn-primary text-uppercase" 
+            style="color: rgb(0,0,0);margin-top: 20px;">Show Answers</button>
+    </div>
     <br>
     <script type="text/javascript" src="/eel.js"></script>
     <script type="text/javascript" src="web.js"></script>
-    <textarea id="ans1" style='min-width:100px;min-height: 100px'> </textarea>
-    
+    <div class="form-group purple-border wrapper" >
+        <textarea id="ans1" rows="3"  class="form-control" style="width: 25%;"> </textarea>
+    </div>
     
     <script type="text/javascript">
 
@@ -268,44 +279,59 @@
                     <h1 style="font-size: 20PX;">ASSIGNMENT</h1>
                     <p>Find the most optimal assignment schedule for the modification of the Distribution Center layout of a factory, according to the cost of locating a machine at a place (in hundred rupees).</p>
                     <p><i class="fa fa-exclamation-circle" style="font-size: 16px;color: rgb(255, 0, 0);"></i> Note: If no value, use -1</p>
-                    <br>
-                    <br>
-                    <br>
+                    
+                   
                 </div>
             </div>
         </div>
     </section>
 
-
-
     <form name="myform1" id="myform1">
-        <table id="blacklistgrid1">
-            <tr id="Row11">
-                <td class="space">&nbsp;</td>
-                <td>Location0</td>
-            </tr>
-            <tr id="Row21">
-                <td>
-                    <input type="text" placeholder="task" name="task" required />
-                </td>
-                <td>
-                    <input type="number" name="t0" min="-1" />
-                </td>
-            </tr>
-        </table>
+        <div class="table-responsive" style="margin-right: 50px; margin-left: 50px;">
+            <table id="blacklistgrid1" class="table table-striped center" style=" width: 50%; margin-left: auto; margin-right: auto;" >
+                <tr id="Row11">
+                    <td class="space">&nbsp;</td>
+                    <td>Location0</td>
+                </tr>
+                <tr id="Row21">
+                    <td>
+                        <input type="text" placeholder="task" name="task" />
+                    </td>
+                    <td>
+                        <input type="number" name="t0" min="-1" />
+                    </td>
+                </tr>
+            </table>
+        </div>
         <br>
-        <input type="submit" value="Clear" class="btn btn-primary btn-primary text-uppercase" style="color: rgb(0,0,0)"></input>
+        <div class="wrapper">
+            <input type="submit" value="Clear" class="btn btn-primary btn-primary text-uppercase " style="color: rgb(0,0,0);"></input>
+        </div>
         </form>
-    <br>
-    <button type="button" id="btnAdd1" class="btn btn-primary btn-primary text-uppercase" style="color: rgb(0,0,0)"> New VAS Activity</button>
-    <button type="button" id="btnAddCol1" class="btn btn-primary btn-primary text-uppercase" style="color: rgb(0,0,0)"> New Location</button>
-    <button id='download-button1'class="btn btn-primary btn-primary text-uppercase" style="color: rgb(0,0,0)">Calculate</button>
-    <button type="button" id="hun1" onclick="read1()" class="btn btn-primary btn-primary text-uppercase" style="color: rgb(0,0,0)">Show Results</button>
+    
+    <div class="wrapper">
+        <button type="button" id="btnAdd1" class="btn btn-primary btn-primary text-uppercase" 
+            style="color: rgb(0,0,0); margin-top: 20px; margin-right: 20px;"> New VAS Activity</button>
+        
+        <button type="button" id="btnAddCol1" class="btn btn-primary btn-primary text-uppercase " 
+            style="color: rgb(0,0,0); margin-top: 20px;"> New Location</button>
+    </div>
+    
+    <div class="wrapper">
+        <button id='download-button1'class="btn btn-primary btn-primary text-uppercase " 
+            style="color: rgb(0,0,0); margin-top: 20px;">Calculate</button>
+    </div>
+    <div class="wrapper">
+        <button type="button" id="hun1" onclick="read1()" class="btn btn-primary btn-primary text-uppercase " 
+            style="color: rgb(0,0,0);margin-top: 20px; ">Show Results</button>
+    </div>
     <br>
     <br>
     <script type="text/javascript" src="/eel.js"></script>
     <script type="text/javascript" src="web1.js"></script>
-    <textarea id="ans"> </textarea>
+    <div class="form-group purple-border wrapper" style="margin-bottom: 20px;" >
+        <textarea id="ans" rows="3"  class="form-control" style="width: 25%;"> </textarea>
+    </div>
 
     <div id="d1" style='max-width:200px;min-height:20px;display: none'>
 
